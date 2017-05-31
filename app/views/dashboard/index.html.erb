@@ -1,0 +1,21 @@
+<table class="ui fixed single line celled table">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>tag</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td> <%= link_to question.question, upload_answer_user_index_path(id: question.id), target: "_blank" %> </td>
+        <td><%= question.tag %></td>
+        <td><%= user_name(question) %></td>
+      </tr>
+    <%end%>
+    
+  </tbody>
+</table>
+<%= will_paginate @questions %>

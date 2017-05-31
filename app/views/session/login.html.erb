@@ -1,0 +1,14 @@
+<div class="ui one column center aligned grid">
+  <div class="column six wide form-holder">
+    <h2 class="center aligned header form-head">Sign in</h2>
+    <%= form_tag(session_index_path, method: :post, class: "ui form") do %>  
+      <div class="field">
+        <%= text_field_tag "email", nil, :placeholder => 'Email', :id => "login_email" %> 
+      </div>
+      <div class="field">
+        <%= password_field_tag "password", nil, :placeholder => 'Password', :id => "login_password" %> 
+      </div>
+      <%= submit_tag "sign in", class: "ui button large fluid green", :id => "login_submit" %>
+    <% end %>
+  </div> 
+</div>

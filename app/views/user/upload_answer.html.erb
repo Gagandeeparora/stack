@@ -1,0 +1,41 @@
+<div class="ui segment">
+  <div class="ui equal width center aligned padded grid">
+    <div class="row">
+      <table class="ui selectable celled table">
+        <thead>
+          <tr class="ui inverted cell">
+            <th>Question:- <%= @question.question %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        	<tr>
+        		<td class="single line"> Answers:- </td>
+        	</tr>
+          <% @answers.each do |answer| %>
+            <tr>
+              
+              <td class="single line"> <%= answer.ans %> </td>
+            </tr>
+          <% end %>  
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>  
+
+
+	  
+<%= form_for @answer, url: post_answer_user_index_path, method: :post, html: {class: "ui form"} do |f| %>
+ 	<%= hidden_field_tag 'question_id', @question.id %>
+	 	<div class="ui segment">
+	 	  <label>Answer</label>
+ 			<%= f.text_area :ans, class: "field" %>
+				<% if user_logged_in?  %>
+				<%= f.submit :post, class: "ui button"%>
+			<% else %>
+				<%= link_to "Login To Post", login_session_index_path, class: "ui button" %>		 		
+				<% end%>
+ 		</div>
+<% end %>

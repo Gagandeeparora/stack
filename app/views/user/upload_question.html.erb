@@ -1,0 +1,9 @@
+<%= form_for @question, url: post_question_user_index_path, method: :post, html: {class: "ui form"} do |f| %> 
+
+  <label>Question</label>
+  <%= f.text_area :question, class: "field" %>
+  <%= f.select("tag",["other","ruby", "rails", "java","c++","c"], {}) %>
+  <%= f.submit :Post, class: "ui button"%>
+
+
+<% end %>

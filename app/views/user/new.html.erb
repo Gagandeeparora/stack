@@ -1,0 +1,21 @@
+ <h2><center>User Registeration</center></h2>
+<div class="ui segment">
+<div class="ui middle aligned center aligned grid"> 
+
+    <%= form_for @user, url: user_index_path, method: :post, html: {class: "ui large form"} do |f| %> 
+      
+      
+         <%= f.text_field :name, class: 'field', placeholder: 'Name' %>
+         <%= f.text_field :user_name, class: 'field', placeholder: 'User Name(unique)' %>     
+         <%= f.email_field :email, class: 'field', placeholder: 'Email(unique)' %>
+         <%= f.password_field :password,  class: 'field', placeholder: 'Password' %>
+       
+      
+          
+        <div class="ui message">
+          <%= f.submit "Sign up", class: "ui fluid large teal submit button" %>
+        </div>   
+    <% end %>
+  
+</div>
+</div>
